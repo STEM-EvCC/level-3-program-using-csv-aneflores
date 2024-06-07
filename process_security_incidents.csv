@@ -1,21 +1,20 @@
 import csv
 
 def process_security_incidents(input_file, output_file):
-    data = [
-        {"IncidentID": 1, "Date": "1/15/2023", "Type": "Phishing", "Severity": "High", "Description": "Phishing email targeting company employees", "Status": "Pending"},
-        {"IncidentID": 2, "Date": "1/20/2023", "Type": "Malware", "Severity": "Medium", "Description": "Malware detected on employee workstation", "Status": "Pending"},
-        {"IncidentID": 3, "Date": "2/5/2023", "Type": "Ransomware", "Severity": "Critical", "Description": "Ransomware attack encrypting company data", "Status": "Pending"},
-        {"IncidentID": 4, "Date": "3/10/2023", "Type": "Phishing", "Severity": "Low", "Description": "Phishing email targeting external customers", "Status": "Pending"},
-        {"IncidentID": 5, "Date": "3/15/2023", "Type": "Data Breach", "Severity": "Critical", "Description": "Sensitive data leaked from database", "Status": "Pending"}
-    ]
+    # Read CSV file and store data in a list
+    with open(input_file, 'r', newline='') as csvfile:
+        reader = csv.reader(csvfile)
+        data = list(reader)
+
+    for row in data:
+        row.append("Pending")
 
     with open(output_file, 'w', newline='') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=["IncidentID", "Date", "Type", "Severity", "Description", "Status"])
-        writer.writeheader()
+        writer = csv.writer(csvfile)
         writer.writerows(data)
 
 if __name__ == "__main__":
     input_file = 'security_incidents.csv'
     output_file = 'security_incidents_modified.csv'
     process_security_incidents(input_file, output_file)
-    print("Modified data saved to", output_file)
+    print("Processing complete. Modified data saved to", output_file)

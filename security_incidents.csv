@@ -1,6 +1,11 @@
-﻿IncidentID,Date,Type,Severity,Description,Status
-1,1/15/2023,Phishing,High,Phishing email targeting company employees,Pending
-2,1/20/2023,Malware,Medium,Malware detected on employee workstation,Pending
-3,2/5/2023,Ransomware,Critical,Ransomware attack encrypting company data,Pending
-4,3/10/2023,Phishing,Low,Phishing email targeting external customers,Pending
-5,3/15/2023,Data Breach,Critical,Sensitive data leaked from database,Pending
+﻿security_incidents = [
+    {"IncidentID": 1, "Date": "1/15/2023", "Type": "Phishing", "Severity": "High", "Description": "Phishing email targeting company employees", "Status": "Pending"},
+    {"IncidentID": 2, "Date": "1/20/2023", "Type": "Malware", "Severity": "Medium", "Description": "Malware detected on employee workstation", "Status": "Pending"},
+    {"IncidentID": 3, "Date": "2/5/2023", "Type": "Ransomware", "Severity": "Critical", "Description": "Ransomware attack encrypting company data", "Status": "Pending"},
+    {"IncidentID": 4, "Date": "3/10/2023", "Type": "Phishing", "Severity": "Low", "Description": "Phishing email targeting external customers", "Status": "Pending"},
+    {"IncidentID": 5, "Date": "3/15/2023", "Type": "Data Breach", "Severity": "Critical", "Description": "Sensitive data leaked from database", "Status": "Pending"}
+]
+
+# Print the data to verify
+for incident in security_incidents:
+    print(incident)
